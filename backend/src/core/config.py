@@ -17,6 +17,20 @@ class Settings(BaseSettings):
     app_debug: bool = Field(default=False, alias="APP_DEBUG")
 
     telegram_token: str = Field(default="", alias="TELEGRAM_TOKEN")
+    telegram_webhook_secret: str = Field(default="", alias="TELEGRAM_WEBHOOK_SECRET")
+    telegram_max_media_size_bytes: int = Field(
+        default=50 * 1024 * 1024,
+        alias="TELEGRAM_MAX_MEDIA_SIZE_BYTES",
+    )
+    telegram_max_media_duration_seconds: int = Field(
+        default=120 * 60,
+        alias="TELEGRAM_MAX_MEDIA_DURATION_SECONDS",
+    )
+    telegram_large_file_threshold_bytes: int = Field(
+        default=20 * 1024 * 1024,
+        alias="TELEGRAM_LARGE_FILE_THRESHOLD_BYTES",
+    )
+
     db_dsn: str = Field(
         default="postgresql+psycopg://postgres:postgres@localhost:5432/sumscriptbro",
         alias="DB_DSN",
